@@ -48,7 +48,10 @@
               <p>{{ user?.interests }}</p>
             </tab>
             <tab heading="Photos" id="tab1">
-              <p>Photo will go here</p>
+              <ngx-gallery
+                [options]="galleryOptions"
+                [images]="galleryImages"
+              ></ngx-gallery>
             </tab>
             <tab heading="Messsage">
               <p>Message will go here</p>

@@ -13,7 +13,7 @@ import {
 } from "./_services/error.interceptor";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, Renderer2 } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavComponent } from "./nav/nav.component";
@@ -29,6 +29,7 @@ import { MemberListComponent } from "./members/member-list/member-list.component
 import { MessagesComponent } from "./messages/messages.component";
 import { ListsComponent } from "./lists/lists.component";
 import { JwtModule } from "@auth0/angular-jwt";
+import { NgxGalleryModule } from "@nomadreservations/ngx-gallery";
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -49,6 +50,7 @@ export function tokenGetter() {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxGalleryModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
