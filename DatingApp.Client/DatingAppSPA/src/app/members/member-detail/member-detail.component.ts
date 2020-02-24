@@ -11,7 +11,7 @@ import { TabsetComponent } from "ngx-bootstrap";
   styleUrls: ["./member-detail.component.css"]
 })
 export class MemberDetailComponent implements OnInit {
-  @ViewChild("memberTabs", { static: true }) memberTabs: TabsetComponent;
+  // @ViewChild("memberTabs", { static: true }) memberTabs: TabsetComponent;
   user: User;
 
   constructor(
@@ -20,18 +20,20 @@ export class MemberDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   ngOnInit() {
-    this.loadUser();
+    this.route.data.subscribe(data => {
+      this.user = data["user"];
+    });
   }
 
-  loadUser() {
-    this.userService.getUser(this.route.snapshot.params["id"]).subscribe(
-      (user: User) => {
-        this.user = user;
-        console.log(user);
-      },
-      error => {
-        this.alertifyService.error(error);
-      }
-    );
-  }
+  // loadUser() {
+  //   this.userService.getUser(this.route.snapshot.params["id"]).subscribe(
+  //     (user: User) => {
+  //       this.user = user;
+  //       console.log(user);
+  //     },
+  //     error => {
+  //       this.alertifyService.error(error);
+  //     }
+  //   );
+  // }
 }

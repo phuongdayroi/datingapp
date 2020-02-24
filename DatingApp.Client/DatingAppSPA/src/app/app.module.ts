@@ -1,3 +1,9 @@
+import { MemberListResolver } from "./_resolvers/member-list.resolver";
+import { UserService } from "./_services/user.service";
+import { AuthGuard } from "./_guards/auth.guard";
+import { AlertifyService } from "./_services/alertify.service";
+import { MemberDetailResolver } from "./_resolvers/member-detail.resolver";
+import { MemberDetailComponent } from "./members/member-detail/member-detail.component";
 import { MemberCardComponent } from "./members/member-card/member-card.component";
 import { RouterModule } from "@angular/router";
 import { appRoutes } from "./routes";
@@ -37,7 +43,8 @@ export function tokenGetter() {
     MemberListComponent,
     MessagesComponent,
     ListsComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,15 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [AuthService, ErrorInterceptor],
+  providers: [
+    AuthService,
+    ErrorInterceptor,
+    AlertifyService,
+    AuthGuard,
+    UserService,
+    MemberDetailResolver,
+    MemberListResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

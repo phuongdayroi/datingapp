@@ -36,10 +36,23 @@
     <div class="col-sm-8">
       <div class="tab-panel">
         <div>
-          <tabset>
-            <tab heading="Basic title" id="tab1">Basic content</tab>
-            <tab heading="Basic Title 1">Basic content 1</tab>
-            <tab heading="Basic Title 2">Basic content 2</tab>
+          <tabset class="members-tabset">
+            <tab heading="About {{ user?.knownAs }}" id="tab1">
+              <h4>Description</h4>
+              <p>{{ user?.introduction }}</p>
+              <h4>Looking For</h4>
+              <p>{{ user?.lookingFor }}</p>
+            </tab>
+            <tab heading="Interests" id="tab1">
+              <h4>Interests</h4>
+              <p>{{ user?.interests }}</p>
+            </tab>
+            <tab heading="Photos" id="tab1">
+              <p>Photo will go here</p>
+            </tab>
+            <tab heading="Messsage">
+              <p>Message will go here</p>
+            </tab>
           </tabset>
         </div>
       </div>
