@@ -51,7 +51,7 @@
               aria-labelledby="dropdownMenuButton"
               *dropdownMenu
             >
-              <a class="dropdown-item" href="#"
+              <a class="dropdown-item" [routerLink]="['/member/edit']"
                 ><i class="fa fa-user"> Edit Profile</i></a
               >
               <a class="dropdown-item" (click)="logout()"
