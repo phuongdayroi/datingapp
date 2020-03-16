@@ -1,6 +1,7 @@
 import { AlertifyService } from "./../_services/alertify.service";
 import { AuthService } from "./../_services/auth.service";
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { timeout } from "rxjs/operators";
 
 @Component({
   selector: "app-register",
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
         this.alertifyService.success("Registration successfull");
       },
       error => {
-        console.log(error);
+        let message = error.error ? error.error : error;
         this.alertifyService.error(error.error);
       }
     );
